@@ -4,6 +4,11 @@ Create methods to easily generate paths and url
 
 [![npm version](https://img.shields.io/npm/v/route-helpers.svg?style=flat-square)](https://www.npmjs.com/package/route-helpers-generator)
 
+## Dependencies
+
+* path-to-regexp - ^2.1.0
+* qs - ^6.5.1
+
 ## Install
 
 ```
