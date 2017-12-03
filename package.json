@@ -1,0 +1,48 @@
+{
+  "name": "route-helpers-generator",
+  "version": "1.0.0",
+  "description": "Create methods to easily generate paths and url",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist --source-maps --presets env",
+    "prepublish": "rimraf dist && npm run build",
+    "test": "jest",
+    "pretest": "npm run lint",
+    "lint": "eslint src/*"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Prizrack13/route-helpers-generator.git"
+  },
+  "homepage": "https://github.com//Prizrack13/route-helpers-generator",
+  "keywords": [
+    "routes"
+  ],
+  "author": "Anatoliy Varanitsa <prizrack13@mail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.2.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1",
+    "pre-commit": "^1.2.2",
+    "regenerator-runtime": "^0.11.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "path-to-regexp": "^2.1.0",
+    "qs": "^6.5.1"
+  }
+}
