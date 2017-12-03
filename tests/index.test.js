@@ -10,6 +10,11 @@ test('generatePathMethod', () => {
 	expect(method('/users/1')).toEqual({id: '1'});
 	expect(method('/users/2')).toEqual({id: '2'});
 	expect(method('/users')).toEqual(null);
+	expect(method('/users/2.json')).toEqual({id: '2', format: 'json'});
+	expect(method('/users/2#test')).toEqual({id: '2', hash: 'test'});
+	expect(method('/users/2?q=search')).toEqual({id: '2', q: 'search'});
+	expect(method('/users/2?q%5B%5D=1&q%5B%5D=2')).toEqual({id: '2', q: ['1', '2']});
+	expect(method('/users/2?q%5Bname%5D=john')).toEqual({id: '2', q: {name: 'john'}});
 });
 
 test('generatePathMethod', () => {
