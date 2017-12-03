@@ -17,7 +17,7 @@ or
 yarn add route-helpers-generator
 ```
 
-_Note: it is assumed that this will be used in a modern environemnt, for legacy environments add [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) in your app._
+_Note: it is assumed that this will be used in a modern environment, for legacy environments add [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) in your app._
 
 ## Usage
 
