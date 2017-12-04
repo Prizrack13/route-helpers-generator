@@ -2,7 +2,7 @@
 
 Create methods to easily generate paths and url
 
-[![npm version](https://img.shields.io/npm/v/route-helpers.svg?style=flat-square)](https://www.npmjs.com/package/route-helpers-generator)
+[![npm version](https://img.shields.io/npm/v/route-helpers-generator.svg?style=flat-square)](https://www.npmjs.com/package/route-helpers-generator)
 
 ## Dependencies
 
