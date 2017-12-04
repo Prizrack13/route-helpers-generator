@@ -1,6 +1,6 @@
 {
   "name": "route-helpers-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create methods to easily generate paths and url",
   "main": "dist/index.js",
   "files": [
