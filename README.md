@@ -56,18 +56,16 @@ routesHelper.match('/users') // => {name: 'users', params: {}}
 routesHelper.match('/') // => null
 ```
 
-Create file showRoutes.js with content
-
-```
-import routesHelper from '<your_path>'
-routesHelper.show();
-```
+## Help Script
 
 Add to package.json to show generated methods
+
+_You will need to add babel and babel-cli and use babel-node in case you use presets._
+
 ```
 {
     "scripts": {
-        "routes": "node showRoutes.js"
+        "routes": "node -e \"require('./app/javascript/packs/routesHelper').default.show()\""
     }
 }
 ```

@@ -18,6 +18,7 @@ class RoutesHelper {
 
 	setHost(host) {
 		this.config.host = host;
+		return this;
 	}
 
 	getHost() {
@@ -35,7 +36,7 @@ class RoutesHelper {
 		return null;
 	}
 
-	show(method = console.log) {
+	help(method = console.log) {
 		const Table = require('cli-table');
 		let table = new Table({
 			chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': '',

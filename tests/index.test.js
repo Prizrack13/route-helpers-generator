@@ -57,7 +57,7 @@ test('RoutesHelper', () => {
 	expect(routesHelper.match('/users/1')).toEqual({name: 'user', params: {id: '1'}});
 	expect(routesHelper.match('/users')).toEqual({name: 'users', params: {}});
 	expect(routesHelper.match('/')).toEqual(null);
-	routesHelper.show((text) => {
+	routesHelper.help((text) => {
 		const Table = require('cli-table');
 		let table = new Table({
 			chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': '',
