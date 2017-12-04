@@ -25,7 +25,7 @@ _Note: it is assumed that this will be used in a modern environment, for legacy 
 Declare some routes:
 
 
-```
+```js
 import RoutesHelper, {generatePathMethod, generateUrlMethod, generateMatch} from 'route-helpers-generator'
 
 const userMatch = generateMatch('/users/:id');
@@ -62,7 +62,7 @@ Add to package.json to show generated methods
 
 _You will need to add babel and babel-cli and use babel-node in case you use presets._
 
-```
+```json
 {
     "scripts": {
         "routes": "node -e \"require('./app/javascript/packs/routesHelper').default.show()\""
