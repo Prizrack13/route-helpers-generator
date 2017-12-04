@@ -43,7 +43,7 @@ userPath({id: 1, user: [1, 2]}) // => '/users/1?user%5B%5D=1&user%5B%5D=2'
 const userUrl = generateUrlMethod('http://test.com', '/users/:id');
 userUrl({id: 1}) // => 'http://test.com/users/1'
 
-const routesHelper = new RoutesHelper({user: '/users/:id', users: '/users'} {host: 'http://test.com'})
+const routesHelper = new RoutesHelper({user: '/users/:id', users: '/users'}, {host: 'http://test.com'})
 routesHelper.userPath({id: 1}) // => '/users/1'
 routesHelper.userUrl({id: 1}) // => 'http://test.com/users/1'
 routesHelper.userRegexp({}) // => '/users/:id'
@@ -62,10 +62,18 @@ Add to package.json to show generated methods
 
 _You will need to add babel and babel-cli and use babel-node in case you use presets._
 
+./routesHelper
+```js
+import RoutesHelper from 'route-helpers-generator'
+const routesHelper = new RoutesHelper({user: '/users/:id', users: '/users'}, {host: 'http://test.com'})
+
+export default routesHelper;
+````
+
 ```json
 {
     "scripts": {
-        "routes": "node -e \"require('./app/javascript/packs/routesHelper').default.show()\""
+        "routes": "babel-node -e \"require('./routesHelper').default.help()\""
     }
 }
 ```
