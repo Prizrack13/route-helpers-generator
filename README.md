@@ -8,6 +8,7 @@ Create methods to easily generate paths and url
 
 * path-to-regexp - ^2.1.0
 * qs - ^6.5.1
+* cli-table - ^0.3.1
 
 ## Install
 
@@ -53,6 +54,22 @@ routesHelper.userUrl({id: 1}) // => 'https://test.com/users/1'
 routesHelper.match('/users/1') // => {name: 'user', params: {id: '1'}}
 routesHelper.match('/users') // => {name: 'users', params: {}}
 routesHelper.match('/') // => null
+```
+
+Create file showRoutes.js with content
+
+```
+import routesHelper from '<your_path>'
+routesHelper.show();
+```
+
+Add to package.json to show generated methods
+```
+{
+    "scripts": {
+        "routes": "node showRoutes.js"
+    }
+}
 ```
 
 ## Release

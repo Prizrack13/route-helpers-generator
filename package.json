@@ -43,6 +43,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "cli-table": "^0.3.1",
     "path-to-regexp": "^2.1.0",
     "qs": "^6.5.1"
   }

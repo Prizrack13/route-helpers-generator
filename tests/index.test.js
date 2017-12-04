@@ -57,4 +57,30 @@ test('RoutesHelper', () => {
 	expect(routesHelper.match('/users/1')).toEqual({name: 'user', params: {id: '1'}});
 	expect(routesHelper.match('/users')).toEqual({name: 'users', params: {}});
 	expect(routesHelper.match('/')).toEqual(null);
+	routesHelper.show((text) => {
+		const Table = require('cli-table');
+		let table = new Table({
+			chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': '',
+				'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': '',
+				'left': '' , 'left-mid': '' , 'mid': '' , 'mid-mid': '',
+				'right': '' , 'right-mid': '' , 'middle': ' '
+			},
+			style: { 'padding-left': 0, 'padding-right': 0 },
+			head: ['Method', 'Result']
+		});
+		table.push(
+			['userRegexp()', '/users/:id'],
+			['userMatch(\'/users/1\')', '{"id":"1"}'],
+			['userTokens', '["id"]'],
+			['userPath({"id":1})', '/users/1'],
+			['userUrl({"id":1})', 'http://test.com/users/1'],
+			['usersRegexp()', '/users'],
+			['usersMatch(\'/users\')','{}'],
+			['usersTokens', '[]'],
+			['usersPath({})', '/users'],
+			['usersUrl({})', 'http://test.com/users']
+		);
+		table.toString();
+		expect(text).toEqual(table.toString());
+	});
 });
