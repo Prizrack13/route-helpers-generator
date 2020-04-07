@@ -1,5 +1,5 @@
 import qs from 'qs'
-import pathToRegexp from 'path-to-regexp'
+import {pathToRegexp} from 'path-to-regexp'
 import Url from 'url'
 
 const generateMatch = (path) => {

@@ -1,10 +1,10 @@
 import qs from 'qs'
-import pathToRegexp from 'path-to-regexp'
+import {parse, tokensToFunction} from 'path-to-regexp'
 
 const generatePathMethod = (path) => {
-	const tokens = pathToRegexp.parse(path);
+	const tokens = parse(path);
 	const tokenNames = tokens.map((token) => typeof token === 'string' ? null : token.name).filter((token) => token);
-	const pathFunc = pathToRegexp.tokensToFunction(tokens);
+	const pathFunc = tokensToFunction(tokens);
 	return [tokenNames, (data, options) => {
 		let queryValues = {};
 		Object.keys(data || {}).forEach((key) => {
