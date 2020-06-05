@@ -38,6 +38,9 @@ class RoutesHelper {
 
 	help(method = console.log) {
 		const Table = require('cli-table');
+		const randexp = require('randexp').randexp;
+		const parse = require('path-to-regexp').parse;
+
 		let table = new Table({
 			chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': '',
 				'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': '',
@@ -48,8 +51,10 @@ class RoutesHelper {
 			head: ['Method', 'Result']
 		});
 		this.routes.forEach((key) => {
+			const tokens = parse(this[`${key}Regexp`]()).filter((token) => typeof token !== 'string');
 			const params = this[`${key}Tokens`].reduce((memo, name, index) => {
 				memo[name] = index + 1;
+				!memo[name].toString().match(tokens[index].pattern) && (memo[name] = randexp(tokens[index].pattern));
 				return memo;
 			}, {});
 			const path = this[`${key}Path`](params);

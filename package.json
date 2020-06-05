@@ -1,6 +1,6 @@
 {
   "name": "route-helpers-generator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create methods to easily generate paths and url",
   "main": "dist/index.js",
   "files": [
@@ -45,6 +45,7 @@
   "dependencies": {
     "cli-table": "^0.3.1",
     "path-to-regexp": "^6.1.0",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "randexp": "^0.5.3"
   }
 }

@@ -9,6 +9,7 @@ Create methods to easily generate paths and url
 * path-to-regexp - ^2.1.0
 * qs - ^6.5.1
 * cli-table - ^0.3.1
+* randexp - ^0.5.3
 * url
 
 ## Install
