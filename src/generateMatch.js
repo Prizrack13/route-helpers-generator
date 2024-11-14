@@ -1,12 +1,12 @@
 import qs from 'qs'
 import {pathToRegexp} from 'path-to-regexp'
-import Url from 'url'
+const URL = typeof window === 'undefined' || window.URL.parse === undefined ? require('url') : window.URL
 
 const generateMatch = (path) => {
 	let keys = [];
 	const regexp = pathToRegexp(path, keys);
 	return (url) => {
-		url = Url.parse(url);
+		url = URL.parse(url);
 		const formatMatch = url.pathname.match(/\.([^.]+)$/);
 		const format = formatMatch && formatMatch[1];
 		const match = regexp.exec(url.pathname.replace(/\.[^.]+$/, ''));
