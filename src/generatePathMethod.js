@@ -14,7 +14,7 @@ const generatePathMethod = (path) => {
 			(queryValues[key] = data[key]);
 		});
 		const path = pathFunc(data, options);
-		const query = qs.stringify(queryValues, { arrayFormat: 'brackets' });
+		const query = qs.stringify(queryValues, Object.assign({ arrayFormat: 'brackets' }, options || {}));
 		const hash = (data || {}).hash || '';
 		const format = (data || {}).format || '';
 		return `${path}${format && `.${format}`}${query && '?'}${query}${hash && '#'}${hash}`;
