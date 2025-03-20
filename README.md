@@ -10,13 +10,12 @@ Create methods to easily generate paths and url
 * qs - ^6.5.1
 * cli-table - ^0.3.1
 * randexp - ^0.5.3
-* url
 
 ## Install
 
 ```
 npm install --save route-helpers-generator
-or 
+or
 yarn add route-helpers-generator
 ```
 
@@ -31,7 +30,7 @@ Declare some routes:
 import RoutesHelper, {generatePathMethod, generateUrlMethod, generateMatch} from 'route-helpers-generator'
 
 const userMatch = generateMatch('/users/:id');
-userMatch('/users/1') // => {id: 1} 
+userMatch('/users/1') // => {id: 1}
 userMatch('/users') // => null
 
 const userPath = generatePathMethod('/users/:id');
@@ -83,3 +82,4 @@ export default routesHelper;
 ## Release
 
 `npm publish`
+`npm unpublish route-helpers-generator@version`

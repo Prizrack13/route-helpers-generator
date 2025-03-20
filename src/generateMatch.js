@@ -1,13 +1,16 @@
 import qs from 'qs'
 import {pathToRegexp} from 'path-to-regexp'
 
-const URL = typeof window === 'undefined' || window.URL.parse === undefined ? require('url') : window.URL;
-
 const parseURL = (url) => {
 	if (typeof(url) === 'object') return url;
-	if (URL.prototype) return new URL(url);
-	if (URL.parse) return URL.parse(url);
-	return { pathname: url };
+	if (!url.match(/^http/)) url = 'https://test.com' + url
+	const regex = /^(https?):\/\/([^:/]+)(:\d+)?(\/[^?#]*)?(\?[^#]*)?(#.*)?$/;
+	const match = url.match(regex);
+	if (match) {
+		const [, protocol, hostname, port, pathname, search, hash] = match;
+		return { protocol, hostname, port, pathname, search, hash };
+	}
+	return null
 };
 const generateMatch = (path) => {
 	let keys = [];
@@ -26,7 +29,7 @@ const generateMatch = (path) => {
 			return memo;
 		}, {});
 		url.hash && (params.hash = url.hash.replace(/^#/, ''));
-		url.query && (params = {...params, ...qs.parse(url.query)});
+		url.search && (params = {...params, ...qs.parse(url.search.replace(/^\?/, ''))});
 		format && (params.format = format);
 		return params;
 	};
