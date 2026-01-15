@@ -23,6 +23,7 @@ test('generatePathMethod', () => {
 	expect(typeof method).toBe('function');
 	expect(() => method({})).toThrow(/Expected "id"/);
 	expect(method({id: 1})).toBe('/users/1');
+	expect(method({id: BigInt(1)})).toBe('/users/1');
 	expect(method({id: 1, format: 'json'})).toBe('/users/1.json');
 	expect(method({id: 1, hash: 'test'})).toBe('/users/1#test');
 	expect(method({id: 1, q: 'search'})).toBe('/users/1?q=search');
